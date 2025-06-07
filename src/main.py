@@ -1,8 +1,9 @@
-from models import user, seller
+from models import user, seller, product
 
 
 us = user.User()
 ve = seller.Seller()
+pro = product.Product()
 
 if __name__ == "__main__":
     while True:
@@ -185,7 +186,30 @@ if __name__ == "__main__":
                         case _:
                             print("Selecione somente as opções listadas.")
             case "3":
-                pass
+                while True:
+                    choice = input(
+                        "O que deseja fazer?\n"
+                        "[1] Inserir\n"
+                        "[2] Procurar\n"
+                        "[3] Voltar\n"
+                    )
+
+                    match choice:
+                        case "1":
+                            name = input("Digite o nome do produto: ")
+                            price = input("Digite o preço do produto: ")
+                            seller_id = input("Digite o ID do vendedor: ")
+
+                            pro.insert(name, price, seller_id)
+                        case "2":
+                            name = input("Digite o nome do produto: ")
+
+                            for item in pro.search(name):
+                                print(item)
+                        case "3":
+                            break
+                        case _:
+                            print("Selecione somente as opções listadas.")
             case "4":
                 pass
             case "5":
