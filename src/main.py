@@ -16,9 +16,9 @@ if __name__ == "__main__":
             "[5] Sair\n"
         )
 
-        while True:
-            match choice:
-                case "1":
+        match choice:
+            case "1":
+                while True:
                     choice = input(
                         "O que deseja fazer?\n"
                         "[1] Inserir\n"
@@ -119,14 +119,15 @@ if __name__ == "__main__":
                                 name,
                                 email,
                                 cpf,
-                                addresses,
-                                password
+                                password,
+                                addresses
                             )
                         case "3":
                             break
                         case _:
                             print("Selecione somente as opções listadas.")
-                case "2":
+            case "2":
+                while True:
                     choice = input(
                         "O que deseja fazer?\n"
                         "[1] Inserir\n"
@@ -175,18 +176,19 @@ if __name__ == "__main__":
                                 name,
                                 email,
                                 cpf,
-                                addresses,
-                                password
+                                cnpj,
+                                password,
+                                addresses
                             )
                         case "2":
                             break
                         case _:
                             print("Selecione somente as opções listadas.")
-                case "3":
-                    pass
-                case "4":
-                    pass
-                case "5":
-                    break
-                case _:
-                    print("Por favor, selecione apenas as opções listadas.")
+            case "3":
+                pass
+            case "4":
+                pass
+            case "5":
+                break
+            case _:
+                print("Por favor, selecione apenas as opções listadas.")
