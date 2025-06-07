@@ -1,9 +1,11 @@
-from models import user, seller, product
+from models import user, seller, product, purchase
+import datetime
 
 
 us = user.User()
 ve = seller.Seller()
 pro = product.Product()
+pur = purchase.Purchase()
 
 if __name__ == "__main__":
     while True:
@@ -211,7 +213,34 @@ if __name__ == "__main__":
                         case _:
                             print("Selecione somente as opções listadas.")
             case "4":
-                pass
+                while True:
+                    choice = input(
+                        "O que deseja fazer?\n"
+                        "[1] Inserir\n"
+                        "[2] Deletar\n"
+                        "[3] Voltar\n"
+                    )
+
+                    match choice:
+                        case "1":
+                            product_id = input("Digite o ID do produto: ")
+                            buyer_id = input("Digite o ID do comprador: ")
+
+                            date = datetime.date.today()
+
+                            pur.insert(
+                                product_id,
+                                buyer_id,
+                                date
+                            )
+                        case "2":
+                            purchase_id = input("Digite o ID da compra: ")
+
+                            pur.delete(purchase_id)
+                        case "3":
+                            break
+                        case _:
+                            print("Selecione somente as opções listadas.")
             case "5":
                 break
             case _:
