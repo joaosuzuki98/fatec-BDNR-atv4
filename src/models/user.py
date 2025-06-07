@@ -18,13 +18,13 @@ class User:
             "nome": name,
             "email": email,
             "cpf": cpf,
-            "end": addresses,
-            "senha": password
+            "senha": password,
+            "end": addresses
         }
 
         self.cass.insert_one(document)
 
-        print("Usuário adicionado")
+        print("Usuário adicionado.")
 
     def update(
         self,
