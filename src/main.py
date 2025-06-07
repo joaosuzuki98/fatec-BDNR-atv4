@@ -122,6 +122,66 @@ if __name__ == "__main__":
                         break
                     case _:
                         print("Selecione somente as opções listadas.")
+            case "2":
+                choice = input(
+                    "O que deseja fazer?\n"
+                    "[1] Inserir\n"
+                    "[2] Voltar\n"
+                )
+
+                match choice:
+                    case "1":
+                        name = input("Digite o nome do vendedor: ")
+                        email = input("Digite o email do vendedor: ")
+                        cpf = input("Digite o CPF do vendedor: ")
+                        cnpj = input("Digite o CNPJ do vendedor: ")
+                        password = input("Digite a senha do vendedor: ")
+
+                        addresses = []
+
+                        add_address = input(
+                            "Deseja adicionar endereços? s/n: "
+                        )
+
+                        while add_address.lower() == "s":
+                            street = input("Digite a rua: ")
+                            neighborhood = input("Digite o bairro: ")
+                            city = input("Digite a cidade: ")
+                            state = input("Digite o estado: ")
+                            cep = input("Digite o cep: ")
+                            number = input("Digite o número: ")
+
+                            addresses.append({
+                                "rua": street,
+                                "bairro": neighborhood,
+                                "cidade": city,
+                                "estado": state,
+                                "cep": cep,
+                                "numero": number
+                            })
+
+                            stop = input(
+                                "Deseja adicionar mais um endereço? s/n: "
+                            )
+
+                            if stop.lower() != "s":
+                                break
+
+                        us.insert(
+                            name,
+                            email,
+                            cpf,
+                            addresses,
+                            password
+                        )
+                    case "2":
+                        break
+                    case _:
+                        print("Selecione somente as opções listadas.")
+            case "3":
+                pass
+            case "4":
+                pass
             case "5":
                 break
             case _:
